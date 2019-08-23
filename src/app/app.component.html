@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+  <span> &nbsp; </span> 
+  <span noWrap=false> Weather Widget </span>
+  <span class="example-spacer"></span>
+  <span> &nbsp;</span>
+</mat-toolbar>
+
+<mat-card class="example-card">
+  
+  <img mat-card-image [src]="imageUrl" alt="Photo of Weather">
+  <mat-card-content>
+    <p>
+        <mat-form-field>
+            <select matNativeControl placeholder="City" name="City" ngModel="model.City" (change)="updateCity($event)" >
+            <option *ngFor="let g of ['Singapore', 'London']"
+            [value]="g">
+            {{ g }}
+            </option>
+            </select>
+        </mat-form-field>
+    </p>
+    <p>
+      Temperature : {{model.temp - 273.15 | number}}
+    </p>
+    <p>
+      Pressure : {{model.pressure | number}} hPa
+    </p>
+    <p>
+      Humidity : {{model.humidity | number}} %
+    </p>
+    <p>
+      Remarks : {{model.description }} 
+    </p>
+    <p>
+      Wind Speed - Degree : {{model.windSpeed }} - {{model.windDegree }} 
+    </p>
+  </mat-card-content>
+  
+</mat-card>
